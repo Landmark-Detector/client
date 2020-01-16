@@ -20,7 +20,10 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.2.2",
+<<<<<<< HEAD
     "owl.carousel": "^2.3.4",
+=======
+>>>>>>> vue component upload box for insert image url and upload modal for showing uploaded image preview done
     "vue": "^2.6.11",
     "vue-hot-reload-api": "^2.3.4"
   },
