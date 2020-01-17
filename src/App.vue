@@ -1,7 +1,7 @@
 <template>
   <div>
-    <landingPage></landingPage>
-  <div class="container-fluid vh-100 vw-100" id="user-page">
+    <landingPage v-if="!isLogin"></landingPage>
+  <div class="container-fluid vh-100 vw-100" v-else>
     <div class="row">
       <div class="col" :style="{'border-bottom': 'solid 1px black'}">
         <upload-box @imgData="getImg"></upload-box>
@@ -29,14 +29,12 @@ import UploadModal from "./UploadModal.vue";
 import HistoryCard from "./HistoryCard.vue";
 
 export default {
-  components: {
-    landingPage
-  },
   data() {
     return {
       message: "Hello world",
       imgUrl: null,
-      images: []
+      images: [],
+      isLogin: false
     };
   },
   methods: {
@@ -72,10 +70,16 @@ export default {
       });
     }
   },
+  created() {
+    if (localStorage.getItem('token')) {
+      this.isLogin = true;
+    }
+  },
   components: {
     UploadBox,
     UploadModal,
-    HistoryCard
+    HistoryCard,
+    landingPage
   }
 };
 </script>
