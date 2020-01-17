@@ -16,5 +16,16 @@
   "bugs": {
     "url": "https://github.com/Landmark-Detector/client/issues"
   },
-  "homepage": "https://github.com/Landmark-Detector/client#readme"
+  "homepage": "https://github.com/Landmark-Detector/client#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.2.2",
+    "owl.carousel": "^2.3.4",
+    "vue": "^2.6.11",
+    "vue-hot-reload-api": "^2.3.4"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.1.1",
+    "vue-template-compiler": "^2.6.11"
+  }
 }
