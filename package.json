@@ -18,12 +18,17 @@
   },
   "homepage": "https://github.com/Landmark-Detector/client#readme",
   "dependencies": {
+    "axios": "^0.19.1",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.2.2",
+<<<<<<< HEAD
 <<<<<<< HEAD
     "owl.carousel": "^2.3.4",
 =======
 >>>>>>> vue component upload box for insert image url and upload modal for showing uploaded image preview done
+=======
+    "sweetalert2": "^9.6.0",
+>>>>>>> uploadbox, uploadmodal, historycard vue components done
     "vue": "^2.6.11",
     "vue-hot-reload-api": "^2.3.4"
   },

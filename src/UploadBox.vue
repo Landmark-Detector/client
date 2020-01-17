@@ -10,9 +10,8 @@
           placeholder="Choose a file or drop it here..."
           @change.prevent="onFileChange"
           drop-placeholder="Drop file here..."
-          @dragover.prevent
-          @drop.stop.prevent="onDrop"
           size="lg"
+          enctype="multipart/form-data"
         ></b-form-file>
       </div>
     </div>
@@ -20,6 +19,9 @@
 </template>
 
 <script>
+import api from "./api.js";
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -30,10 +32,20 @@ export default {
   },
   methods: {
     onFileChange(e) {
-      const tempFile = e.target.files[0];
+      const tempFile = event.target.files[0];
       this.url = URL.createObjectURL(tempFile);
-      // this.$refs["file-input"].reset();
-      this.$emit("img", this.url);
+
+      let sendData = new FormData();
+      sendData.append("file", tempFile);
+      axios
+        .post("http://35.240.152.89/upload/image", sendData)
+        .then(({data}) => {
+          // this.$refs["file-input"].reset();
+          this.$emit("imgData", data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
     onDrop(e) {
       const file = e.dataTransfer.files[0];
