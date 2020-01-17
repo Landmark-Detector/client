@@ -27,7 +27,7 @@
               <p v-if="imgData.landmark">Score: {{ imgData.landmark.score }}</p>
             </div>
             <p>
-              <share-button></share-button>
+              <share-button :img="imgData"></share-button>
             </p>
           </div>
         </div>

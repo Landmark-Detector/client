@@ -1,16 +1,21 @@
 <template>
-  <a
-    class="twitter-share-button"
-    href="https://twitter.com/intent/tweet?text=This place is beautiful"
-    data-size="large"
-  >
-    Tweet
-  </a>
+  <div>
+    <a
+      class="twitter-share-button"
+      :href="
+        `https://twitter.com/intent/tweet?text=${img.landmark.landmarkName}&url=${img.url}`
+      "
+      data-size="large"
+    >
+      Tweet
+    </a>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  props: ["imgUrl"],
+  props: ["img"],
   data() {
     return {};
   }

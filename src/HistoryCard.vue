@@ -16,7 +16,6 @@
     >
       <div v-show="activeOptions">
         <b-card-text>
-          <!-- <h3>{{ img.landmark.landmarkName }}</h3> -->
           <p>Location :</p>
           <ul>
             <li>latitude: {{ img.landmark.location.latitude }}</li>
@@ -25,7 +24,7 @@
           <p>Score : {{ img.landmark.score }}</p>
         </b-card-text>
 
-        <share-button></share-button>
+        <share-button :img="img"></share-button>
       </div>
     </b-card>
   </div>

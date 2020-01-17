@@ -38,7 +38,11 @@ export default {
       let sendData = new FormData();
       sendData.append("file", tempFile);
       axios
-        .post("http://35.240.152.89/upload/image", sendData)
+        .post("http://35.240.152.89/upload/image", sendData, {
+          headers: {
+            token: localStorage.getItem("token")
+          }
+        })
         .then(({data}) => {
           // this.$refs["file-input"].reset();
           this.$emit("imgData", data);
