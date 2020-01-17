@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
       let homePage = 'http://localhost:1234/index.html'
-      let serverAddress = 'http://localhost:3000'
+      let serverAddress = 'http://35.240.152.89'
       let query = {}
       window.location.search
         .slice(1)
@@ -25,16 +25,21 @@
           query[temp[0]] = temp[1]
         })
 
-      console.log(query)
-      console.log('loading')
       axios
         .get(
           `${serverAddress}/parse-token?oauth_token=${query.oauth_token}&oauth_verifier=${query.oauth_verifier}`,
         )
         .then(({ data }) => {
-          console.log(data)
-          localStorage.setItem('email', data.email)
           localStorage.setItem('username', data.username)
+          localStorage.setItem('twitterToken', data.token)
+          localStorage.setItem('twitterTokenSecret', data.token_secret)
+          return axios.post(`${serverAddress}/user/login`, {
+            username: data.username,
+            email: data.email,
+          })
+        })
+        .then(({ data }) => {
+          localStorage.setItem('token', data.token)
           window.location.href = homePage
         })
         .catch(err => {
