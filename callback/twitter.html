@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Twitter Oauth</title>
+  </head>
+  <body>
+    <p id="message">Redirecting...</p>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      let homePage = 'http://localhost:1234/index.html'
+      let serverAddress = 'http://localhost:3000'
+      let query = {}
+      window.location.search
+        .slice(1)
+        .split('&')
+        .forEach(part => {
+          let temp = part.split('=')
+          query[temp[0]] = temp[1]
+        })
+
+      console.log(query)
+      console.log('loading')
+      axios
+        .get(
+          `${serverAddress}/parse-token?oauth_token=${query.oauth_token}&oauth_verifier=${query.oauth_verifier}`,
+        )
+        .then(({ data }) => {
+          console.log(data)
+          localStorage.setItem('email', data.email)
+          localStorage.setItem('username', data.username)
+          window.location.href = homePage
+        })
+        .catch(err => {
+          if (err.response) console.log(err.response)
+          else console.log(err)
+          document.getElementById('message').innerHTML =
+            'Error happend. <a href="http://localhost:1234/index.html">Back to homepage</a>'
+        })
+    </script>
+  </body>
+</html>

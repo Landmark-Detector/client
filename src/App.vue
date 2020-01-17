@@ -1,7 +1,7 @@
 <template>
   <div>
     <landingPage></landingPage>
-  </div>  
+  </div>
 </template>
 
 <script>
