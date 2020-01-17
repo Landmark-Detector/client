@@ -24,7 +24,7 @@
                         <p class="mt-3 font-thin desc animated fadeInLeft delay-2s">
                           Lorem Ipsum is simply dummy text of the <span class="font-weight-bold">printing</span> and typesetting industry. Lorem <span class="font-weight-bold">Ipsum</span> has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of <span class="font-weight-bold">type</span>
                         </p>
-                        <a href="#" class="btn btn-login mt-5 animated fadeIn delay-2s"><span class="pr-3"><img src="../../assets/images/twitter.png" alt="twitter" width="32"></span>Sign in with twitter</a>
+                        <a href="http://35.240.152.89/request-token" class="btn btn-login mt-5 animated fadeIn delay-2s"><span class="pr-3"><img src="../../assets/images/twitter.png" alt="twitter" width="32"></span>Sign in with twitter</a>
                       </div>
                     </div>
                   </div>
